@@ -1,0 +1,20 @@
+---
+rabbitmq_daemon: rabbitmq-server
+rabbitmq_state: started
+rabbitmq_enabled: yes
+
+rabbitmq_version: "{{ '3.7.18' if ansible_distribution_release == 'buster' else '3.6.16' }}"
+rabbitmq_focal_version: "3.8.8"
+rabbitmq_el8_version: "3.8.8"
+
+rabbitmq_rpm: "rabbitmq-server-{{ rabbitmq_version }}-1.el{{ ansible_distribution_major_version }}.noarch.rpm"
+rabbitmq_el8_rpm: "rabbitmq-server-{{ rabbitmq_el8_version }}-1.el{{ ansible_distribution_major_version }}.noarch.rpm"
+rabbitmq_rpm: "rabbitmq-server-{{ rabbitmq_version }}-1.el{{ ansible_distribution_major_version }}.noarch.rpm"
+rabbitmq_rpm_url: "https://packagecloud.io/rabbitmq/rabbitmq-server/packages/el/{{ ansible_distribution_major_version }}/{{ rabbitmq_rpm }}/download"
+rabbitmq_el8_rpm_url: "https://packagecloud.io/rabbitmq/rabbitmq-server/packages/el/{{ ansible_distribution_major_version }}/{{ rabbitmq_el8_rpm }}/download"
+rabbitmq_gpg_key: "https://packagecloud.io/rabbitmq/rabbitmq-server/gpgkey"
+
+rabbitmq_deb: "rabbitmq-server_{{ rabbitmq_version }}-1_all.deb"
+rabbitmq_focal_deb: "rabbitmq-server_{{ rabbitmq_focal_version }}-1_all.deb"
+rabbitmq_deb_url: "https://packagecloud.io/rabbitmq/rabbitmq-server/packages/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/{{ rabbitmq_deb }}/download"
+rabbitmq_focal_deb_url: "https://packagecloud.io/rabbitmq/rabbitmq-server/packages/{{ ansible_distribution | lower }}/bionic/{{ rabbitmq_focal_deb }}/download"
