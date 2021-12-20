@@ -4,6 +4,11 @@
   become: true
 
   tasks:
+    - name: Creates directory for java
+      file:
+        path: /usr/share/man/man1
+        state: directory
+
     - name: Update cache
       apt:
         update_cache: yes
