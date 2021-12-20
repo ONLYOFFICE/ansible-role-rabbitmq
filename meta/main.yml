@@ -19,9 +19,9 @@ galaxy_info:
       - focal
     - name: Debian
       versions:
+      - bullseye
       - jessie
       - stretch
-      - buster
   galaxy_tags:
     - application
     - system
