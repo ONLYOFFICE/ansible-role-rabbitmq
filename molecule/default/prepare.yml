@@ -1,0 +1,12 @@
+---
+- name: Prepare
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Update cache
+      apt:
+        update_cache: yes
+      when: ansible_os_family == "Debian"
+      changed_when: false
+      failed_when: false

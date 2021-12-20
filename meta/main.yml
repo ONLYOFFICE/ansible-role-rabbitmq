@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  namespace: onlyoffice
   role_name: rabbitmq
   author: Sergei Steklov
   description: "RabbitMQ installation for Linux"
