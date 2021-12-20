@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  namespace: onlyoffice
   role_name: rabbitmq
   author: Sergei Steklov
   description: "RabbitMQ installation for Linux"
@@ -18,9 +19,9 @@ galaxy_info:
       - focal
     - name: Debian
       versions:
+      - bullseye
       - jessie
       - stretch
-      - buster
   galaxy_tags:
     - application
     - system

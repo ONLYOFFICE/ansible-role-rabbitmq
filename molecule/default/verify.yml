@@ -1,0 +1,12 @@
+---
+- hosts: all
+  remote_user: root
+  become: true
+  tasks:
+    - name: "Enable rabbitmq management plugin"
+      command: rabbitmq-plugins enable rabbitmq_management    
+    - name: "Get health check status"
+      uri:
+        url: http://localhost:15672/api/overview
+        user: "guest"
+        password: "guest"

@@ -1,4 +1,5 @@
 # Ansible Role: RabbitMQ
+[![Test](https://github.com/ONLYOFFICE/ansible-role-rabbitmq/actions/workflows/ci.yml/badge.svg)](https://github.com/ONLYOFFICE/ansible-role-rabbitmq/actions/workflows/ci.yml)
 
 Installs RabbitMQ on Linux.
 
@@ -20,6 +21,10 @@ The RabbitMQ version to install.
     
 The RabbitMQ version to install for Ubuntu 20.04.
 
+    rabbitmq_bullseye_version: "3.15.8"
+
+The RabbitMQ version to install for Debian Bullseye.
+
     rabbitmq_el8_version: "3.8.8"
     
 The RabbitMQ version to install for Centos8.
@@ -35,8 +40,11 @@ The RabbitMQ version to install for Centos8.
 
     rabbitmq_deb: "rabbitmq-server_{{ rabbitmq_version }}-1_all.deb"
     rabbitmq_focal_deb: "rabbitmq-server_{{ rabbitmq_focal_version }}-1_all.deb"
+    rabbitmq_bullseye_deb: "rabbitmq-server_{{ rabbitmq_bullseye_version }}-1_all.deb"
     rabbitmq_deb_url: "https://packagecloud.io/rabbitmq/rabbitmq-server/packages/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/{{ rabbitmq_deb }}/download"
     rabbitmq_focal_deb_url: "https://packagecloud.io/rabbitmq/rabbitmq-server/packages/{{ ansible_distribution | lower }}/bionic/{{ rabbitmq_focal_deb }}/download"
+    rabbitmq_bullseye_deb_url: "https://packagecloud.io/rabbitmq/rabbitmq-server/packages/{{ ansible_distribution | lower }}/bullseye/{{ rabbitmq_bullseye_deb }}/download"
+
 
 (Debian/Ubuntu only) Controls the .deb to install.
 
