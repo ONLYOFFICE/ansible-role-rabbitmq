@@ -34,6 +34,16 @@
   ansible.builtin.include_tasks: "{{ ansible_os_family }}{{ ansible_distribution_major_version }}.yml"
   when: ansible_os_family == "RedHat" and ansible_distribution_major_version == "8"
 
+- name: rabbitmqi.conf
+  template:
+    src: rabbitmq.conf.j2
+    dest: "{{ rabbitmq_cfg_file }}"
+    mode: 0644
+    owner: root
+    group: root
+  when: rabbitmq_cfg_settings
+  notify: restart rabbitmq
+
 - name: Ensure rabbitmq is started and enabled (if configured).
   ansible.builtin.service:
     name: "{{ rabbitmq_daemon }}"

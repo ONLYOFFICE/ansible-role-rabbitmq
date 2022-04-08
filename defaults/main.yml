@@ -34,3 +34,11 @@ rabbitmq_users: []
 
 # users to remove
 rabbitmq_users_remove: []
+
+rabbitmq_cfg_file: /etc/rabbitmq/rabbitmq.conf
+
+# if some cfg settings are enabled, the {{ rabbitmq_cfg_file }} file will be created from template
+rabbitmq_cfg_settings: {}
+# example
+# rabbitmq_cfg_settings:
+#   "log.file.level": warning
