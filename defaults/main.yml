@@ -20,3 +20,12 @@ rabbitmq_bullseye_deb: "rabbitmq-server_{{ rabbitmq_bullseye_version }}-1_all.de
 rabbitmq_deb_url: "https://packagecloud.io/rabbitmq/rabbitmq-server/packages/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/{{ rabbitmq_deb }}/download"
 rabbitmq_focal_deb_url: "https://packagecloud.io/rabbitmq/rabbitmq-server/packages/{{ ansible_distribution | lower }}/bionic/{{ rabbitmq_focal_deb }}/download"
 rabbitmq_bullseye_deb_url: "https://packagecloud.io/rabbitmq/rabbitmq-server/packages/{{ ansible_distribution | lower }}/bullseye/{{ rabbitmq_bullseye_deb }}/download"
+
+
+rabbitmq_cfg_file: /etc/rabbitmq/rabbitmq.conf
+
+# if some cfg settings are enabled, the {{ rabbitmq_cfg_file }} file will be created from template
+rabbitmq_cfg_settings: {}
+# example
+# rabbitmq_cfg_settings:
+#   "log.file.level": warning

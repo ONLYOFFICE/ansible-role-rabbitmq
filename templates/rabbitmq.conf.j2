@@ -1,0 +1,5 @@
+#jinja2: lstrip_blocks: True
+# {{ ansible_managed }}
+{% for k, v in rabbitmq_cfg_settings.items() | list %}
+{{ k }} = {{ v }}
+{% endfor %}
