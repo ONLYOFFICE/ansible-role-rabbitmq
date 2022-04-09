@@ -5,7 +5,7 @@ Installs RabbitMQ on Linux.
 
 ## Role Variables
 
-Available variables are listed below, along with default values (see `defaults/main.yml`):
+Available variables are listed below, along with default values (see [defaults/main.yml](defaults/main.yml)):
 
     rabbitmq_daemon: rabbitmq-server
     rabbitmq_state: started
