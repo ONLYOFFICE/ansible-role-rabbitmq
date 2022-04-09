@@ -22,6 +22,8 @@ galaxy_info:
       - bullseye
       - jessie
       - stretch
+  dependencies:
+    - community.rabbitmq
   galaxy_tags:
     - application
     - system
