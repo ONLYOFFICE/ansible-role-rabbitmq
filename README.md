@@ -50,7 +50,9 @@ The RabbitMQ version to install for Centos8.
 
 ## Dependencies
 
-None.
+### community.rabbitmq
+
+    ansible-galaxy collection install community.rabbitmq
 
 ## Example Playbook
 
