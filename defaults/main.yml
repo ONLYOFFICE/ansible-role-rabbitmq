@@ -20,3 +20,14 @@ rabbitmq_bullseye_deb: "rabbitmq-server_{{ rabbitmq_bullseye_version }}-1_all.de
 rabbitmq_deb_url: "https://packagecloud.io/rabbitmq/rabbitmq-server/packages/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/{{ rabbitmq_deb }}/download"
 rabbitmq_focal_deb_url: "https://packagecloud.io/rabbitmq/rabbitmq-server/packages/{{ ansible_distribution | lower }}/bionic/{{ rabbitmq_focal_deb }}/download"
 rabbitmq_bullseye_deb_url: "https://packagecloud.io/rabbitmq/rabbitmq-server/packages/{{ ansible_distribution | lower }}/bullseye/{{ rabbitmq_bullseye_deb }}/download"
+
+# vhosts
+# https://docs.ansible.com/ansible/latest/collections/community/rabbitmq/rabbitmq_vhost_module.html
+rabbitmq_vhosts: []
+
+# define users
+# https://docs.ansible.com/ansible/latest/collections/community/rabbitmq/rabbitmq_user_module.html
+rabbitmq_users: []
+
+# users to remove
+rabbitmq_users_remove: []
