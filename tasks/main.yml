@@ -35,7 +35,7 @@
     name: "{{ item }}"
   with_items: "{{ rabbitmq_vhosts }}"
 
-- name: Ensure the users is present
+- name: Ensure the users present
   rabbitmq_user:
     user: "{{ item.user }}"
     password: "{{ item.password }}"
@@ -46,7 +46,7 @@
     tags: "{{ item.tags | default('') }}"
   with_items: "{{ rabbitmq_users }}"
 
-- name: Ensure the users is removed
+- name: Ensure the users removed
   rabbitmq_user:
     user: "{{ item }}"
     state: absent
