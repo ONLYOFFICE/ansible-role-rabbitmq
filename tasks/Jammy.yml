@@ -1,0 +1,10 @@
+---
+- name: Download RabbitMQ package.
+  get_url:
+    url: "{{ rabbitmq_jammy_deb_url }}"
+    dest: "/tmp/{{ rabbitmq_jammy_deb }}"
+
+- name: Ensure RabbitMQ is installed.
+  apt:
+    deb: "/tmp/{{ rabbitmq_jammy_deb }}"
+    state: present
