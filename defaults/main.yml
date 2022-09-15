@@ -3,7 +3,7 @@ rabbitmq_daemon: rabbitmq-server
 rabbitmq_state: started
 rabbitmq_enabled: yes
 
-rabbitmq_version: "{{ '3.7.18' if ansible_distribution_release == 'buster' else  '3.6.16' }}"
+rabbitmq_version: "{{ '3.7.18' if ansible_distribution_release == 'buster' else '3.6.16' }}"
 rabbitmq_bullseye_version: "3.8.15"
 rabbitmq_focal_version: "3.8.8"
 rabbitmq_jammy_version: "3.10.7"
