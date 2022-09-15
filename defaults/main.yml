@@ -6,7 +6,7 @@ rabbitmq_enabled: yes
 rabbitmq_version: "{{ '3.7.18' if ansible_distribution_release == 'buster' else '3.6.16' }}"
 rabbitmq_bullseye_version: "3.8.15"
 rabbitmq_focal_version: "3.8.8"
-rabbitmq_jammy_version: "3.10.7"
+rabbitmq_jammy_version: "3.8.33"
 rabbitmq_el8_version: "3.8.8"
 
 rabbitmq_rpm: "rabbitmq-server-{{ rabbitmq_version }}-1.el{{ ansible_distribution_major_version }}.noarch.rpm"
