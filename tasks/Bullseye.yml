@@ -6,6 +6,6 @@
     mode: '0644'
 
 - name: Ensure RabbitMQ is installed.
-  aansible.builtin.apt:
+  ansible.builtin.apt:
     deb: "/tmp/{{ rabbitmq_bullseye_deb }}"
     state: present
