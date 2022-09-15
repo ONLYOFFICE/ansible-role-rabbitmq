@@ -3,6 +3,7 @@
   ansible.builtin.get_url:
     url: "{{ rabbitmq_focal_deb_url }}"
     dest: "/tmp/{{ rabbitmq_focal_deb }}"
+    mode: '0644'
 
 - name: Ensure RabbitMQ is installed.
   ansible.builtin.apt:
