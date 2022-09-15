@@ -1,16 +1,16 @@
 ---
 - name: Add packagecloud GPG key.
-  rpm_key:
+  ansible.builtin.rpm_key:
     key: "{{ rabbitmq_gpg_key }}"
     state: present
 
 - name: Download RabbitMQ package.
-  get_url:
+  ansible.builtin.get_url:
     url: "{{ rabbitmq_el8_rpm_url }}"
     dest: "/tmp/{{ rabbitmq_el8_rpm }}"
 
 - name: Ensure RabbitMQ is installed.
-  dnf:
+  ansible.builtin.dnf:
     name: "/tmp/{{ rabbitmq_el8_rpm }}"
     state: "present"
     disable_gpg_check: yes

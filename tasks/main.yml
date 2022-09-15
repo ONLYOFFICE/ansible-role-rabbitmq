@@ -1,35 +1,35 @@
 ---
 - name: Install erlang
-  package:
+  ansible.builtin.package:
     name: erlang
     state: present
 
 - name: Include Debian tasks
-  include_tasks: "Debian.yml"
+  ansible.builtin.include_tasks: "Debian.yml"
   when: (ansible_os_family == "Debian" and ansible_distribution_release != "focal" and ansible_distribution_release != "bullseye" and ansible_distribution_release != "jammy")
 
 - name: Include Ubuntu2004 tasks
-  include_tasks: "Focal.yml"
+  ansible.builtin.include_tasks: "Focal.yml"
   when: ansible_distribution_release == "focal"
 
 - name: Include Ubuntu2204 tasks
-  include_tasks: "Jammy.yml"
+  ansible.builtin.include_tasks: "Jammy.yml"
   when: ansible_distribution_release == "jammy"
 
 - name: Include Debian Bullseye tasks
-  include_tasks: "Bullseye.yml"
+  ansible.builtin.include_tasks: "Bullseye.yml"
   when: ansible_distribution_release == "bullseye"
 
 - name: Include Centos7 install tasks
-  include_tasks: "{{ ansible_os_family }}.yml"
+  ansible.builtin.include_tasks: "{{ ansible_os_family }}.yml"
   when: ansible_os_family == "RedHat" and ansible_distribution_major_version != "8"
 
 - name: Include Centos8 install tasks
-  include_tasks: "{{ ansible_os_family }}{{ ansible_distribution_major_version }}.yml"
+  ansible.builtin.include_tasks: "{{ ansible_os_family }}{{ ansible_distribution_major_version }}.yml"
   when: ansible_os_family == "RedHat" and ansible_distribution_major_version == "8"
 
 - name: Ensure rabbitmq is started and enabled (if configured).
-  service:
+  ansible.builtin.service:
     name: "{{ rabbitmq_daemon }}"
     state: "{{ rabbitmq_state }}"
     enabled: "{{ rabbitmq_enabled }}"
