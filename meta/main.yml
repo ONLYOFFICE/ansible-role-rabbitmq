@@ -8,10 +8,10 @@ galaxy_info:
   license: "GNU AGPL v3.0"
   min_ansible_version: 2.3
   platforms:
-    - name: Enterprise Linux 
+    - name: EL
       versions:
-      - 7
-      - 8
+      - RedHat-7
+      - RedHat-8
     - name: Ubuntu
       versions:
       - xenial
