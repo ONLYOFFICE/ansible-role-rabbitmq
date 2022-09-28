@@ -1,4 +1,10 @@
 ---
+- name: Install epel
+  ansible.builtin.package:
+    name: epel-release
+    state: present
+  when: ansible_os_family == "RedHat"
+
 - name: Install erlang
   ansible.builtin.package:
     name: erlang
