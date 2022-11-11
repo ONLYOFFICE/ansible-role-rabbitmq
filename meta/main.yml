@@ -6,22 +6,22 @@ galaxy_info:
   description: "RabbitMQ installation for Linux"
   company: "Ascensio System SIA"
   license: "GNU AGPL v3.0"
-  min_ansible_version: 2.3
+  min_ansible_version: "2.3"
   platforms:
     - name: EL
       versions:
-      - 7
-      - 8
+      - "7"
+      - "8"
     - name: Ubuntu
       versions:
-      - xenial
-      - bionic
-      - focal
+      - "xenial"
+      - "bionic"
+      - "focal"
     - name: Debian
       versions:
-      - bullseye
-      - jessie
-      - stretch
+      - "bullseye"
+      - "jessie"
+      - "stretch"
   dependencies:
     - community.rabbitmq
   galaxy_tags:

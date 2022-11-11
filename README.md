@@ -23,6 +23,10 @@ The RabbitMQ version to install for Ubuntu 20.04.
 
     rabbitmq_bullseye_version: "3.15.8"
 
+The RabbitMQ version to install for Ubuntu 22.04.
+
+    rabbitmq_bullseye_version: "3.8.33"
+
 The RabbitMQ version to install for Debian Bullseye.
 
     rabbitmq_el8_version: "3.8.8"
@@ -40,9 +44,11 @@ The RabbitMQ version to install for Centos8.
 
     rabbitmq_deb: "rabbitmq-server_{{ rabbitmq_version }}-1_all.deb"
     rabbitmq_focal_deb: "rabbitmq-server_{{ rabbitmq_focal_version }}-1_all.deb"
+    rabbitmq_jammy_deb: "rabbitmq-server_{{ rabbitmq_jammy_version }}-1_all.deb"
     rabbitmq_bullseye_deb: "rabbitmq-server_{{ rabbitmq_bullseye_version }}-1_all.deb"
     rabbitmq_deb_url: "https://packagecloud.io/rabbitmq/rabbitmq-server/packages/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}/{{ rabbitmq_deb }}/download"
     rabbitmq_focal_deb_url: "https://packagecloud.io/rabbitmq/rabbitmq-server/packages/{{ ansible_distribution | lower }}/bionic/{{ rabbitmq_focal_deb }}/download"
+    rabbitmq_jammy_deb_url: "https://packagecloud.io/rabbitmq/rabbitmq-server/packages/{{ ansible_distribution | lower }}/jammy/{{ rabbitmq_jammy_deb }}/download"
     rabbitmq_bullseye_deb_url: "https://packagecloud.io/rabbitmq/rabbitmq-server/packages/{{ ansible_distribution | lower }}/bullseye/{{ rabbitmq_bullseye_deb }}/download"
 
 
