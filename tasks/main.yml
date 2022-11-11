@@ -31,12 +31,12 @@
     enabled: "{{ rabbitmq_enabled }}"
 
 - name: Ensure rabbitmq vhosts
-  rabbitmq_vhost:
+  community.rabbitmq.rabbitmq_vhost:
     name: "{{ item }}"
   with_items: "{{ rabbitmq_vhosts }}"
 
 - name: Ensure the users present
-  rabbitmq_user:
+  community.rabbitmq.rabbitmq_user:
     user: "{{ item.user }}"
     password: "{{ item.password }}"
     configure_priv: "{{ item.configure_priv | default('.*') }}"
@@ -47,7 +47,7 @@
   with_items: "{{ rabbitmq_users }}"
 
 - name: Ensure the users removed
-  rabbitmq_user:
+  community.rabbitmq.rabbitmq_user:
     user: "{{ item }}"
     state: absent
   with_items: "{{ rabbitmq_users_remove }}"
