@@ -34,7 +34,7 @@
   ansible.builtin.include_tasks: "{{ ansible_os_family }}{{ ansible_distribution_major_version }}.yml"
   when: ansible_os_family == "RedHat" and ansible_distribution_major_version == "8"
 
-- name: rabbitmq.conf
+- name: Generate rabbitmq.conf
   template:
     src: rabbitmq.conf.j2
     dest: "{{ rabbitmq_cfg_file }}"
