@@ -42,7 +42,7 @@
     owner: root
     group: root
   when: rabbitmq_cfg_settings
-  notify: restart rabbitmq
+  notify: Restart rabbitmq
 
 - name: Ensure rabbitmq is started and enabled (if configured).
   ansible.builtin.service:
