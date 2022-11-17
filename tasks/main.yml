@@ -35,7 +35,7 @@
   when: ansible_os_family == "RedHat" and ansible_distribution_major_version == "8"
 
 - name: Generate rabbitmq.conf
-  template:
+  ansible.builtin.template:
     src: rabbitmq.conf.j2
     dest: "{{ rabbitmq_cfg_file }}"
     mode: 0644
