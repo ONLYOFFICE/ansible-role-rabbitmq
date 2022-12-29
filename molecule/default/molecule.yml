@@ -13,7 +13,6 @@ platforms:
     cgroupns_mode: host
     capabilities: 
       - SYS_ADMIN
-      - NET_ADMIN
     privileged: true
     pre_build_image: true
 provisioner:
