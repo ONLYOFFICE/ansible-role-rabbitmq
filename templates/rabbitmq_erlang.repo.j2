@@ -1,0 +1,46 @@
+## PackageCloud repositories
+
+[rabbitmq_erlang]
+name=rabbitmq_erlang
+baseurl={{ erlang_rpm_baseurl }}/$basearch
+repo_gpgcheck=1
+gpgcheck=0
+enabled=1
+gpgkey={{ erlang_rpm_repo_key }}
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+metadata_expire=300
+
+[rabbitmq_erlang-source]
+name=rabbitmq_erlang-source
+baseurl={{ erlang_rpm_baseurl }}/SRPMS
+repo_gpgcheck=1
+gpgcheck=0
+enabled=1
+gpgkey={{ erlang_rpm_repo_key }}
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+metadata_expire=300
+
+
+[rabbitmq_rabbitmq-server]
+name=rabbitmq_rabbitmq-server
+baseurl={{ rabbitmq_rpm_baseurl }}/$basearch
+repo_gpgcheck=1
+gpgcheck=0
+enabled=1
+gpgkey={{ rabbitmq_rpm_repo_key }}
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+metadata_expire=300
+
+[rabbitmq_rabbitmq-server-source]
+name=rabbitmq_rabbitmq-server-source
+baseurl={{ rabbitmq_rpm_baseurl }}/SRPMS
+repo_gpgcheck=1
+gpgcheck=0
+enabled=1
+gpgkey={{ rabbitmq_rpm_repo_key }}
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+metadata_expire=300
