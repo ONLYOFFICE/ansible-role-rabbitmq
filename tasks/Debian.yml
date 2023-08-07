@@ -10,17 +10,16 @@
     - apt-transport-https
 
 - name: Add Erlang and RabbitMQ signing keys
-  ansible.builtin.shell:
-    cmd: |
-      set -o pipefail
-      curl -1sLf "{{ item.url }}" | sudo gpg --dearmor | sudo tee "{{ item.dest }}" > /dev/null
-    executable: /bin/bash
+  ansible.builtin.get_url:
+    url: "{{ item.url }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: '0644'
   with_items:
     - { url: "{{ rabbitmq_deb_team_key }}",  dest: "{{ rabbitmq_deb_team_key_location }}" }
     - { url: "{{ rabbitmq_deb_repo_key }}",  dest: "{{ rabbitmq_deb_repo_key_location }}" }
     - { url: "{{ erlang_deb_repo_key }}",    dest: "{{ erlang_deb_repo_key_location }}" }
-  register: gpg_import
-  changed_when: gpg_import.rc == 0
 
 - name: Add Erlang and RabbitMQ repositories
   ansible.builtin.template:
