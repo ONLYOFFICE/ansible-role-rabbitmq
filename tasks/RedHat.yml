@@ -30,9 +30,3 @@
     update_cache: true
     enablerepo:
       - rabbitmq_erlang
-
-- name: Prevent Erlang and RabbitMQ from being upgraded
-  ansible.builtin.lineinfile:
-    path: /etc/yum.conf
-    line: "exclude=erlang* rabbitmq-server*"
-    state: present
