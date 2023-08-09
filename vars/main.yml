@@ -15,6 +15,8 @@ erlang_rpm_baseurl: "https://packagecloud.io/rabbitmq/erlang/el/{{ ansible_distr
 rabbitmq_rpm_repo_key: "https://packagecloud.io/rabbitmq/rabbitmq-server/gpgkey"
 rabbitmq_rpm_baseurl: "https://packagecloud.io/rabbitmq/rabbitmq-server/el/{{ ansible_distribution_major_version }}"
 
+ssl_ca_cert_file: "/etc/pki/tls/certs/ca-bundle.crt"
+
 erlang_packages:
   - erlang-base
   - erlang-asn1
