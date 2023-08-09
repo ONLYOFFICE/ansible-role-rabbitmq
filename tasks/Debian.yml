@@ -21,19 +21,22 @@
     - { url: "{{ rabbitmq_deb_repo_key }}",  dest: "{{ rabbitmq_deb_repo_key_location }}" }
     - { url: "{{ erlang_deb_repo_key }}",    dest: "{{ erlang_deb_repo_key_location }}" }
 
-- name: Add Erlang and RabbitMQ repositories
-  ansible.builtin.template:
-    src: rabbitmq.list.j2
-    dest: /etc/apt/sources.list.d/rabbitmq.list
-    owner: root
-    group: root
-    mode: '0644'
+- name: Add Erlang repository
+  ansible.builtin.apt_repository:
+    repo: "{{ erlang_deb_repository }}"
+    state: present
+    filename: "erlang.list"
+
+- name: Add RabbitMQ repository
+  ansible.builtin.apt_repository:
+    repo: "{{ rabbitmq_deb_repository }}"
+    state: present
+    filename: "rabbitmq.list"
 
 - name: Install Erlang {{ erlang_version }}
   ansible.builtin.apt:
     name: "{{ item }}=1:{{ erlang_version }}*"
     state: present
-    update_cache: true
     install_recommends: true
   with_items: "{{ erlang_packages }}"
   retries: 3
@@ -43,7 +46,6 @@
   ansible.builtin.apt:
     name: rabbitmq-server={{ rabbitmq_version }}*
     state: present
-    update_cache: true
   retries: 3
   delay: 5
 

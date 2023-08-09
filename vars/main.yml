@@ -4,8 +4,10 @@ rabbitmq_deb_team_key: "https://keys.openpgp.org/vks/v1/by-fingerprint/0A9AF2115
 rabbitmq_deb_team_key_location: "/usr/share/keyrings/com.rabbitmq.team.asc"
 rabbitmq_deb_repo_key: "https://ppa1.novemberain.com/gpg.9F4587F226208342.key"
 rabbitmq_deb_repo_key_location: "/usr/share/keyrings/rabbitmq.9F4587F226208342.asc"
+rabbitmq_deb_repository: "deb [signed-by={{ rabbitmq_deb_repo_key_location }}] https://ppa1.novemberain.com/rabbitmq/rabbitmq-server/deb/{{ ansible_distribution | lower }} {{ ansible_distribution_release | lower }} main"
 erlang_deb_repo_key: "https://ppa1.novemberain.com/gpg.E495BB49CC4BBE5B.key"
 erlang_deb_repo_key_location: "/usr/share/keyrings/rabbitmq.E495BB49CC4BBE5B.asc"
+erlang_deb_repository: "deb [signed-by={{ erlang_deb_repo_key_location }}] https://ppa1.novemberain.com/rabbitmq/rabbitmq-erlang/deb/{{ ansible_distribution | lower }} {{ ansible_distribution_release | lower }} main"
 
 # RPM (PackageCloud)
 erlang_rpm_repo_key: "https://packagecloud.io/rabbitmq/erlang/gpgkey"

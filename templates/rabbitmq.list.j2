@@ -1,9 +1,0 @@
-## Provides modern Erlang/OTP releases from a Cloudsmith mirror
-##
-deb [signed-by={{ erlang_deb_repo_key_location }}] https://ppa1.novemberain.com/rabbitmq/rabbitmq-erlang/deb/{{ ansible_distribution | lower }} {{ ansible_distribution_release | lower }} main
-deb-src [signed-by={{ erlang_deb_repo_key_location }}] https://ppa1.novemberain.com/rabbitmq/rabbitmq-erlang/deb/{{ ansible_distribution | lower }} {{ ansible_distribution_release | lower }} main
-
-## Provides RabbitMQ from a Cloudsmith mirror
-##
-deb [signed-by={{ rabbitmq_deb_repo_key_location }}] https://ppa1.novemberain.com/rabbitmq/rabbitmq-server/deb/{{ ansible_distribution | lower }} {{ ansible_distribution_release | lower }} main
-deb-src [signed-by={{ rabbitmq_deb_repo_key_location }}] https://ppa1.novemberain.com/rabbitmq/rabbitmq-server/deb/{{ ansible_distribution | lower }} {{ ansible_distribution_release | lower }} main
