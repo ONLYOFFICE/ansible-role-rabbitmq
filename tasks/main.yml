@@ -2,6 +2,9 @@
 - name: Include common variables
   ansible.builtin.include_vars: "main.yml"
 
+- name: Include OS specific variables
+  ansible.builtin.include_vars: "{{ ansible_os_family }}{{ ansible_distribution_major_version }}.yml"
+
 - name: Include Debian tasks
   ansible.builtin.include_tasks: "Debian.yml"
   when: ansible_os_family == "Debian"
