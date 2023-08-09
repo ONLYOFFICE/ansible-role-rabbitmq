@@ -6,39 +6,6 @@ rabbitmq_enabled: true
 erlang_version: 25.3.2.4
 rabbitmq_version: 3.11.20
 
-# DEB (Cloudsmith)
-rabbitmq_deb_team_key: "https://keys.openpgp.org/vks/v1/by-fingerprint/0A9AF2115F4687BD29803A206B73A36E6026DFCA"
-rabbitmq_deb_team_key_location: "/usr/share/keyrings/com.rabbitmq.team.asc"
-rabbitmq_deb_repo_key: "https://ppa1.novemberain.com/gpg.9F4587F226208342.key"
-rabbitmq_deb_repo_key_location: "/usr/share/keyrings/rabbitmq.9F4587F226208342.asc"
-erlang_deb_repo_key: "https://ppa1.novemberain.com/gpg.E495BB49CC4BBE5B.key"
-erlang_deb_repo_key_location: "/usr/share/keyrings/rabbitmq.E495BB49CC4BBE5B.asc"
-
-# RPM (PackageCloud)
-erlang_rpm_repo_key: "https://packagecloud.io/rabbitmq/erlang/gpgkey"
-erlang_rpm_baseurl: "https://packagecloud.io/rabbitmq/erlang/el/{{ ansible_distribution_major_version }}"
-rabbitmq_rpm_repo_key: "https://packagecloud.io/rabbitmq/rabbitmq-server/gpgkey"
-rabbitmq_rpm_baseurl: "https://packagecloud.io/rabbitmq/rabbitmq-server/el/{{ ansible_distribution_major_version }}"
-
-erlang_packages:
-  - erlang-base
-  - erlang-asn1
-  - erlang-crypto
-  - erlang-public-key
-  - erlang-mnesia
-  - erlang-runtime-tools
-  - erlang-ssl
-  - erlang-eldap
-  - erlang-ftp
-  - erlang-tftp
-  - erlang-inets
-  - erlang-snmp
-  - erlang-os-mon
-  - erlang-parsetools
-  - erlang-syntax-tools
-  - erlang-tools
-  - erlang-xmerl
-
 # vhosts
 # https://docs.ansible.com/ansible/latest/collections/community/rabbitmq/rabbitmq_vhost_module.html
 rabbitmq_vhosts: []
