@@ -10,23 +10,24 @@ galaxy_info:
   platforms:
     - name: EL
       versions:
-      - "7"
-      - "8"
+        - "7"
+        - "8"
+        - "9"
     - name: Ubuntu
       versions:
-      - "xenial"
-      - "bionic"
-      - "focal"
-      - "jammy"
+        - "bionic"
+        - "focal"
+        - "jammy"
     - name: Debian
       versions:
-      - "bullseye"
-      - "jessie"
-      - "stretch"
-  dependencies:
-    - community.rabbitmq
+        - "buster"
+        - "bullseye"
+        - "bookworm"
   galaxy_tags:
     - application
     - system
     - queue
     - rabbitmq
+
+collections:
+  - community.rabbitmq
