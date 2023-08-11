@@ -4,8 +4,8 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: "${MOLECULE_DISTRO}"
-    image: "${MOLECULE_DISTRO}"
+  - name: "${MOLECULE_DISTRO:-ubuntu2004}"
+    image: "${MOLECULE_DISTRO:-ubuntu2004}"
     command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
