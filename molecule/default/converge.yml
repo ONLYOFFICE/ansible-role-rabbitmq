@@ -3,7 +3,3 @@
   hosts: all
   roles:
     - ansible-role-rabbitmq
-  pre_tasks:
-    - name: Print OS facts
-      ansible.builtin.debug:
-        msg: "OS Family: {{ ansible_os_family }}, OS Release: {{ ansible_distribution_release }}, Ansible Distribution Version: {{ ansible_distribution_version }}"

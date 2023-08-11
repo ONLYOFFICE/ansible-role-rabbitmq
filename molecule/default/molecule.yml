@@ -4,8 +4,8 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: instance
-    image: ${MOLECULE_DISTRO:-geerlingguy/docker-ubuntu22-ansible:latest}
+  - name: "${MOLECULE_DISTRO:-ubuntu2004}"
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2004}-ansible:latest"
     command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
