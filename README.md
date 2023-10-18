@@ -16,8 +16,8 @@ Controls the RabbitMQ daemon's state and whether it starts at boot.
 
 The Erlang and RabbitMQ versions to install.
 
-    erlang_version: 25.3.2.4
-    rabbitmq_version: 3.11.20
+    erlang_version: 25.3.2.7
+    rabbitmq_version: 3.11.24
 
 The Erlang and RabbitMQ versions to install on RedHat 7 / CentOS 7.
 
