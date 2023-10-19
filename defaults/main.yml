@@ -3,8 +3,8 @@ rabbitmq_daemon: rabbitmq-server
 rabbitmq_state: started
 rabbitmq_enabled: true
 
-erlang_version: 25.3.2.4
-rabbitmq_version: 3.11.20
+erlang_version: 25.3.2.7
+rabbitmq_version: 3.11.24
 
 # vhosts
 # https://docs.ansible.com/ansible/latest/collections/community/rabbitmq/rabbitmq_vhost_module.html
