@@ -1,0 +1,4 @@
+## Latest RabbitMQ releases
+##
+deb [arch=amd64 signed-by={{ rabbitmq_deb_team_key_location }}] https://deb1.rabbitmq.com/rabbitmq-server/{{ ansible_distribution | lower }}/{{ ansible_distribution_release | lower }} {{ ansible_distribution_release | lower }} main
+deb [arch=amd64 signed-by={{ rabbitmq_deb_team_key_location }}] https://deb2.rabbitmq.com/rabbitmq-server/{{ ansible_distribution | lower }}/{{ ansible_distribution_release | lower }} {{ ansible_distribution_release | lower }} main

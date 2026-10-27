@@ -3,8 +3,13 @@ rabbitmq_daemon: rabbitmq-server
 rabbitmq_state: started
 rabbitmq_enabled: true
 
-erlang_version: 25.3.2.7
-rabbitmq_version: 3.11.24
+# in order to use the erlang version provided by the distro, just set
+# erlang_version:
+erlang_version: 28.5.0.8
+
+# in order to use the rabbitmq server provided by the distro, just set
+# rabbitmq_version:
+rabbitmq_version: 4.4.0
 
 # vhosts
 # https://docs.ansible.com/ansible/latest/collections/community/rabbitmq/rabbitmq_vhost_module.html

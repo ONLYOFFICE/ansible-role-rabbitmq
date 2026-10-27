@@ -1,46 +1,63 @@
 ---
 - name: Install required packages
   ansible.builtin.apt:
-    name: "{{ item }}"
+    name: "{{ rabbitmq_prerequired_packages }}"
     state: present
     update_cache: true
-  with_items:
-    - curl
-    - gnupg
-    - apt-transport-https
 
-- name: Add Erlang and RabbitMQ signing keys
+- name: Add Team RabbitMQ's Repositories signing keys
   ansible.builtin.get_url:
     url: "{{ item.url }}"
     dest: "{{ item.dest }}"
     owner: root
     group: root
     mode: '0644'
+  when:
+    - rabbitmq_version is defined or erlang_version is defined
+    - rabbitmq_version is not none or erlang_version is not none
+    - rabbitmq_version | length > 0 or erlang_version | length > 0
   with_items:
     - { url: "{{ rabbitmq_deb_team_key }}",  dest: "{{ rabbitmq_deb_team_key_location }}" }
-    - { url: "{{ rabbitmq_deb_repo_key }}",  dest: "{{ rabbitmq_deb_repo_key_location }}" }
-    - { url: "{{ erlang_deb_repo_key }}",    dest: "{{ erlang_deb_repo_key_location }}" }
 
-- name: Add Erlang repository
-  ansible.builtin.apt_repository:
-    repo: "{{ erlang_deb_repository }}"
-    state: present
-    filename: "erlang.list"
-
-- name: Add RabbitMQ repository
-  ansible.builtin.apt_repository:
-    repo: "{{ rabbitmq_deb_repository }}"
-    state: present
-    filename: "rabbitmq.list"
+- name: Add Team RabbitMQ's Repositories
+  ansible.builtin.template:
+    src: "{{ lookup('ansible.builtin.first_found', aptsources) }}"
+    dest: "/etc/apt/sources.list.d/rabbitmq.list"
+    mode: '0644'
+  vars:
+    aptsources:
+      paths:
+        - templates
+      files:
+        - "{{ ansible_distribution.lower() }}-{{ ansible_distribution_release.lower() }}-apt-sources.j2"
+        - "{{ ansible_distribution.lower() }}-apt-sources.j2"
+        - "{{ ansible_os_family.lower() }}-apt-sources.j2"
+  when:
+    - rabbitmq_version is defined or erlang_version is defined
+    - rabbitmq_version is not none or erlang_version is not none
+    - rabbitmq_version | length > 0 or erlang_version | length > 0
 
 - name: Install Erlang {{ erlang_version }}
   ansible.builtin.apt:
     name: "{{ item }}=1:{{ erlang_version }}*"
     state: present
     install_recommends: true
+    update_cache: true
+  when:
+    - erlang_version is defined
+    - erlang_version is not none
+    - erlang_version | length > 0
   with_items: "{{ erlang_packages }}"
   retries: 3
   delay: 5
+
+- name: Install latest Erlang from distro
+  ansible.builtin.apt:
+    name: "{{ erlang_packages }}"
+    install_recommends: true
+    update_cache: true
+  when:
+    - erlang_version is not defined or erlang_version is none or erlang_version | length == 0
 
 - name: Install RabbitMQ {{ rabbitmq_version }}
   ansible.builtin.apt:
@@ -48,14 +65,33 @@
     state: present
   retries: 3
   delay: 5
+  when:
+    - rabbitmq_version is defined
+    - rabbitmq_version is not none
+    - rabbitmq_version | length > 0
+
+- name: Install RabbitMQ latest from distro
+  ansible.builtin.apt:
+    name: rabbitmq-server
+    state: present
+  when:
+    - rabbitmq_version is not defined or rabbitmq_version is none or rabbitmq_version | length == 0
 
 - name: Prevent Erlang from being upgraded
   ansible.builtin.dpkg_selections:
-    name: "{{ item }}" 
+    name: "{{ item }}"
     selection: hold
   with_items: "{{ erlang_packages }}"
+  when:
+    - erlang_version is defined
+    - erlang_version is not none
+    - erlang_version | length > 0
 
 - name: Prevent RabbitMQ from being upgraded
   ansible.builtin.dpkg_selections:
     name: rabbitmq-server
     selection: hold
+  when:
+    - rabbitmq_version is defined
+    - rabbitmq_version is not none
+    - rabbitmq_version | length > 0
